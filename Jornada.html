@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaféLPS - Sistema de Gestão para Cafeteria</title>
+    <link rel="Stylesheet" href="Estilo_estiloso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</head>
+<body>
+    <script type="text/javascript" src="LBJ.js"></script>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>CaféLPS</h2>
+                <p>Sistema de Gestão</p>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="Index.html"><i class="fas fa-tachometer-alt"></i> Início</a></li>
+                    <li><a href="Funcionarios.html"><i class="fas fa-users"></i> Funcionários</a></li>
+                    <li><a href="Clientes.html"><i class="fas fa-user-tie"></i> Clientes</a></li>
+                    <li><a href="Produtos.html"><i class="fas fa-coffee"></i> Produtos</a></li>
+                    <li><a href="Estoque.html"><i class="fas fa-boxes"></i> Estoque</a></li>
+                    <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
+                    <li><a href="#pedidos"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
+                    <li><a href="#promocoes"><i class="fas fa-tags"></i> Promoções</a></li>
+                    <li><a href="#relatorios"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                    <li><a href="Jornada.html"class="active"><i class="fas fa-clock"></i> Jornada</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <!-- Registro de Ponto -->
+<div class="card" id="jornada">
+    <div class="card-header">
+        <h3>Registro de Ponto</h3>
+    </div>
+    <div class="card-body">
+        <h4>Registrar Ponto</h4>
+        <form id="form-ponto">
+            <div class="form-group">
+                <label for="funcionario-ponto">Funcionário</label>
+                <select id="funcionario-ponto" class="form-control" required>
+                    <option value="">Selecione o funcionário...</option>
+                    <option value="1">João Silva</option>
+                    <option value="2">Maria Oliveira</option>
+                    <option value="3">Carlos Souza</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo-registro">Tipo de Registro</label>
+                <select id="tipo-registro" class="form-control" required>
+                    <option value="entrada">Entrada</option>
+                    <option value="saida">Saída</option>
+                    <option value="intervalo-inicio">Início Intervalo</option>
+                    <option value="intervalo-fim">Fim Intervalo</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="data-hora">Data e Hora</label>
+                <input type="datetime-local" id="data-hora" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="observacao">Observação (opcional)</label>
+                <textarea id="observacao" class="form-control" rows="2"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Registrar Ponto</button>
+            <button type="button" class="btn btn-secondary" id="btn-registro-rapido">Registro Rápido (Agora)</button>
+        </form>
+
+        <h4 class="mt-4">Últimos Registros</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Tipo</th>
+                    <th>Data/Hora</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João Silva</td>
+                    <td><span class="badge badge-success">Entrada</span></td>
+                    <td>08/04/2025 08:00</td>
+                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Maria Oliveira</td>
+                    <td><span class="badge badge-warning">Início Intervalo</span></td>
+                    <td>08/04/2025 12:00</td>
+                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Carlos Souza</td>
+                    <td><span class="badge badge-success">Entrada</span></td>
+                    <td>08/04/2025 09:00</td>
+                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Controle de Jornada -->
+<div class="card">
+    <div class="card-header">
+        <h3>Controle de Jornada</h3>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="periodo-jornada">Período</label>
+            <select id="periodo-jornada" class="form-control">
+                <option value="hoje">Hoje</option>
+                <option value="semana">Esta Semana</option>
+                <option value="mes">Este Mês</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+        <!-- Registro de Ponto -->
+<div class="card" id="jornada">
+    <div class="card-header">
+        <h3>Registro de Ponto</h3>
+    </div>
+    <div class="card-body">
+        <h4>Registrar Ponto</h4>
+        <form id="form-ponto">
+            <div class="form-group">
+                <label for="funcionario-ponto">Funcionário</label>
+                <select id="funcionario-ponto" class="form-control" required>
+                    <option value="">Selecione o funcionário...</option>
+                    <option value="1">João Silva</option>
+                    <option value="2">Maria Oliveira</option>
+                    <option value="3">Carlos Souza</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo-registro">Tipo de Registro</label>
+                <select id="tipo-registro" class="form-control" required>
+                    <option value="entrada">Entrada</option>
+                    <option value="saida">Saída</option>
+                    <option value="intervalo-inicio">Início Intervalo</option>
+                    <option value="intervalo-fim">Fim Intervalo</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="data-hora">Data e Hora</label>
+                <input type="datetime-local" id="data-hora" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="observacao">Observação (opcional)</label>
+                <textarea id="observacao" class="form-control" rows="2"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Registrar Ponto</button>
+                <button type="button" class="btn btn-secondary" id="btn-registro-rapido">Registro Rápido (Agora)</button>
+            </div>
+        </form>
+
+        <div class="separator"></div>
+
+        <h4>Últimos Registros</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Tipo</th>
+                    <th>Data/Hora</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João Silva</td>
+                    <td><span class="badge badge-success">Entrada</span></td>
+                    <td>08/04/2025 08:00</td>
+                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Maria Oliveira</td>
+                    <td><span class="badge badge-warning">Início Intervalo</span></td>
+                    <td>08/04/2025 12:00</td>
+                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Controle de Jornada -->
+<div class="card">
+    <div class="card-header">
+        <h3>Controle de Jornada</h3>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="periodo-jornada">Período</label>
+            <select id="periodo-jornada" class="form-control">
+                <option value="hoje">Hoje</option>
+                <option value="semana">Esta Semana</option>
+                <option value="mes">Este Mês</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+        </div>
+        
+        <div class="form-group" id="data-inicio-container" style="display:none;">
+            <label for="data-inicio">Data Início</label>
+            <input type="date" id="data-inicio" class="form-control">
+        </div>
+        
+        <div class="form-group" id="data-fim-container" style="display:none;">
+            <label for="data-fim">Data Fim</label>
+            <input type="date" id="data-fim" class="form-control">
+        </div>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Data</th>
+                    <th>Entrada</th>
+                    <th>Saída</th>
+                    <th>Intervalo</th>
+                    <th>Horas Trabalhadas</th>
+                    <th>Horas Extras</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João Silva</td>
+                    <td>08/04/2025</td>
+                    <td>08:00</td>
+                    <td>17:00</td>
+                    <td>12:00-13:00</td>
+                    <td>8h</td>
+                    <td>0h</td>
+                    <td><span class="badge badge-success">Completo</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="form-group text-center">
+            <button class="btn btn-primary">Gerar Relatório</button>
+            <button class="btn btn-secondary">Exportar para Excel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Relatórios de Horas -->
+<div class="card">
+    <div class="card-header">
+        <h3>Relatórios de Horas Trabalhadas</h3>
+    </div>
+    <div class="card-body">
+        <h4>Resumo por Funcionário</h4>
+        <div class="chart-placeholder">
+            <p class="text-muted text-center">Gráfico de horas trabalhadas por funcionário</p>
+        </div>
+
+        <h4>Horas Extras</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Período</th>
+                    <th>Horas Extras</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Carlos Souza</td>
+                    <td>Abril/2025</td>
+                    <td>8h</td>
+                    <td><span class="badge badge-warning">Não compensado</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Relatório Detalhado</h4>
+        <div class="form-group">
+            <label for="relatorio-funcionario">Funcionário</label>
+            <select id="relatorio-funcionario" class="form-control">
+                <option value="">Todos</option>
+                <option value="1">João Silva</option>
+                <option value="2">Maria Oliveira</option>
+                <option value="3">Carlos Souza</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="relatorio-mes">Mês</label>
+            <select id="relatorio-mes" class="form-control">
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4" selected>Abril</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="relatorio-ano">Ano</label>
+            <select id="relatorio-ano" class="form-control">
+                <option value="2025" selected>2025</option>
+                <option value="2024">2024</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <button class="btn btn-primary btn-block">Gerar Relatório</button>
+        </div>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Dia</th>
+                    <th>Entrada</th>
+                    <th>Saída</th>
+                    <th>Intervalo</th>
+                    <th>Total</th>
+                    <th>Horas Extras</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01/04/2025</td>
+                    <td>Terça</td>
+                    <td>08:00</td>
+                    <td>17:00</td>
+                    <td>12:00-13:00</td>
+                    <td>8h</td>
+                    <td>0h</td>
+                    <td><span class="badge badge-success">Completo</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+        
+        
+        

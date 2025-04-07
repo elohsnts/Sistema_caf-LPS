@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaféLPS - Sistema de Gestão para Cafeteria</title>
+    <link rel="Stylesheet" href="Estilo_estiloso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="" href="">
+</head>
+<body>
+    <script type="text/javascript" src="LBJ.js"></script>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>CaféLPS</h2>
+                <p>Sistema de Gestão</p>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="Index.html" class="active"><i class="fas fa-tachometer-alt"></i> Início</a></li>
+                    <li><a href="Funcionarios.html"><i class="fas fa-users"></i> Funcionários</a></li>
+                    <li><a href="Clientes.html"><i class="fas fa-user-tie"></i> Clientes</a></li>
+                    <li><a href="Produtos.html"><i class="fas fa-coffee"></i> Produtos</a></li>
+                    <li><a href="Estoque.html"><i class="fas fa-boxes"></i> Estoque</a></li>
+                    <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
+                    <li><a href="#pedidos"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
+                    <li><a href="#promocoes"><i class="fas fa-tags"></i> Promoções</a></li>
+                    <li><a href="#relatorios"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                    <li><a href="#jornada"><i class="fas fa-clock"></i> Jornada</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Produtos</h1>
+                <div class="user-info">
+                    <img src="user-avatar.jpg" alt="Usuário">
+                    <span>Gerente</span>
+                </div>
+            </div>
+
+            <div class="card" id="produtos">
+                <div class="card-header">
+                    <h3>Cadastro de Produtos</h3>
+                </div>
+                <div class="card-body">
+                    <form id="form-produto">
+                        <div class="form-group">
+                            <label for="nome-produto">Nome do Produto</label>
+                            <input type="text" id="nome-produto" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id-produto">ID do Produto</label>
+                            <input type="text" id="id-produto" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="data-compra">Data de Compra</label>
+                            <input type="date" id="data-compra" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="data-vencimento">Data de Vencimento</label>
+                            <input type="date" id="data-vencimento" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade em Estoque</label>
+                            <input type="number" id="quantidade" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valor-compra">Valor de Compra (R$)</label>
+                            <input type="number" step="0.01" id="valor-compra" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valor-venda">Valor de Venda (R$)</label>
+                            <input type="number" step="0.01" id="valor-venda" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+                    </form>
+                </div>
+            </div>
