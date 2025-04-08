@@ -7,6 +7,7 @@
     <link rel="Stylesheet" href="Estilo_estiloso.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
+    
 </head>
 <body>
     <script type="text/javascript" src="LBJ.js"></script>
@@ -26,88 +27,23 @@
                     <li><a href="Produtos.html"><i class="fas fa-coffee"></i> Produtos</a></li>
                     <li><a href="Estoque.html"><i class="fas fa-boxes"></i> Estoque</a></li>
                     <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
-                    <li><a href="#pedidos"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
-                    <li><a href="#promocoes"><i class="fas fa-tags"></i> Promoções</a></li>
-                    <li><a href="#relatorios"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                    <li><a href="Pedidos.html"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
+                    <li><a href="Promocoes.html"><i class="fas fa-tags"></i> Promoções</a></li>
+                    <li><a href="Relatorio.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
                     <li><a href="Jornada.html"class="active"><i class="fas fa-clock"></i> Jornada</a></li>
                 </ul>
             </nav>
         </aside>
-        <!-- Registro de Ponto -->
-<div class="card" id="jornada">
-    <div class="card-header">
-        <h3>Registro de Ponto</h3>
-    </div>
-    <div class="card-body">
-        <h4>Registrar Ponto</h4>
-        <form id="form-ponto">
-            <div class="form-group">
-                <label for="funcionario-ponto">Funcionário</label>
-                <select id="funcionario-ponto" class="form-control" required>
-                    <option value="">Selecione o funcionário...</option>
-                    <option value="1">João Silva</option>
-                    <option value="2">Maria Oliveira</option>
-                    <option value="3">Carlos Souza</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="tipo-registro">Tipo de Registro</label>
-                <select id="tipo-registro" class="form-control" required>
-                    <option value="entrada">Entrada</option>
-                    <option value="saida">Saída</option>
-                    <option value="intervalo-inicio">Início Intervalo</option>
-                    <option value="intervalo-fim">Fim Intervalo</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="data-hora">Data e Hora</label>
-                <input type="datetime-local" id="data-hora" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="observacao">Observação (opcional)</label>
-                <textarea id="observacao" class="form-control" rows="2"></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Registrar Ponto</button>
-            <button type="button" class="btn btn-secondary" id="btn-registro-rapido">Registro Rápido (Agora)</button>
-        </form>
 
-        <h4 class="mt-4">Últimos Registros</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Funcionário</th>
-                    <th>Tipo</th>
-                    <th>Data/Hora</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>João Silva</td>
-                    <td><span class="badge badge-success">Entrada</span></td>
-                    <td>08/04/2025 08:00</td>
-                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
-                </tr>
-                <tr>
-                    <td>Maria Oliveira</td>
-                    <td><span class="badge badge-warning">Início Intervalo</span></td>
-                    <td>08/04/2025 12:00</td>
-                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
-                </tr>
-                <tr>
-                    <td>Carlos Souza</td>
-                    <td><span class="badge badge-success">Entrada</span></td>
-                    <td>08/04/2025 09:00</td>
-                    <td><button class="btn btn-primary btn-sm">Editar</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Jornada</h1>
+                <div class="user-info">
+                    <img src="JASPER.jpg" alt="Usuário">
+                    <span>Gerente</span>
+                </div>
+            </div>
+
 
 <!-- Controle de Jornada -->
 <div class="card">

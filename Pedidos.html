@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaféLPS - Controle de Pedidos</title>
+    <link rel="stylesheet" href="Estilo_estiloso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>CaféLPS</h2>
+                <p>Sistema de Gestão</p>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="Index.html"><i class="fas fa-tachometer-alt"></i> Início</a></li>
+                    <li><a href="Funcionarios.html"><i class="fas fa-users"></i> Funcionários</a></li>
+                    <li><a href="Clientes.html"><i class="fas fa-user-tie"></i> Clientes</a></li>
+                    <li><a href="Produtos.html"><i class="fas fa-coffee"></i> Produtos</a></li>
+                    <li><a href="Estoque.html"><i class="fas fa-boxes"></i> Estoque</a></li>
+                    <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
+                    <li><a href="Pedidos.html" class="active"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
+                    <li><a href="Promocoes.html"><i class="fas fa-tags"></i> Promoções</a></li>
+                    <li><a href="Relatorio.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                    <li><a href="Jornada.html"><i class="fas fa-clock"></i> Jornada</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Controle de Pedidos</h1>
+                <div class="user-info">
+                    <img src="JASPER.jpg" alt="Usuário">
+                    <span>Gerente</span>
+                </div>
+            </div>
+
+            <!-- Filtros e Controles -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Filtrar Pedidos</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="filtro-status">Status</label>
+                        <select id="filtro-status" class="form-control">
+                            <option value="todos">Todos</option>
+                            <option value="pendente">Pendentes</option>
+                            <option value="preparo">Em Preparo</option>
+                            <option value="finalizado">Finalizados</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filtro-prioridade">Prioridade</label>
+                        <select id="filtro-prioridade" class="form-control">
+                            <option value="todos">Todas</option>
+                            <option value="alta">Alta</option>
+                            <option value="media">Média</option>
+                            <option value="baixa">Baixa</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">Aplicar Filtros</button>
+                    <button class="btn btn-secondary">Limpar Filtros</button>
+                </div>
+            </div>
+
+            <!-- Lista de Pedidos -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>Pedidos Pendentes</h3>
+                        <span class="badge badge-primary">5 pedidos</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Pedido 1 -->
+                    <div class="pedido-card card mb-3 prioridade-alta">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h5>Pedido #125 <span class="badge badge-danger ml-2">Alta Prioridade</span></h5>
+                                    <p><strong>Cliente:</strong> Maria Oliveira (Mesa 4)</p>
+                                    <p><strong>Itens:</strong> 2x Cappuccino, 1x Croissant</p>
+                                    <p><strong>Tempo estimado:</strong> 15 minutos</p>
+                                    <div class="progresso-pedido">
+                                        <div class="progresso-bar" style="width: 30%"></div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="text-right">
+                                    <span class="status-badge status-pendente">Pendente</span>
+                                    <p class="mt-2"><small>Recebido às 10:15</small></p>
+                                    <div class="btn-group mt-2">
+                                        <button class="btn btn-sm btn-primary btn-status" data-status="preparo">
+                                            <i class="fas fa-play"></i> Iniciar
+                                        </button>
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-info-circle"></i> Detalhes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedido 2 -->
+                    <div class="pedido-card card mb-3 prioridade-media">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h5>Pedido #124 <span class="badge badge-warning ml-2">Média Prioridade</span></h5>
+                                    <p><strong>Cliente:</strong> João Silva (Balcão)</p>
+                                    <p><strong>Itens:</strong> 1x Expresso, 1x Pão de Queijo</p>
+                                    <p><strong>Tempo estimado:</strong> 8 minutos</p>
+                                    <div class="progresso-pedido">
+                                        <div class="progresso-bar" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="status-badge status-preparo">Em Preparo</span>
+                                    <p class="mt-2"><small>Iniciado às 10:05</small></p>
+                                    <div class="btn-group mt-2">
+                                        <button class="btn btn-sm btn-success btn-status" data-status="finalizado">
+                                            <i class="fas fa-check"></i> Finalizar
+                                        </button>
+                                        <button class="btn btn-sm btn-warning btn-status" data-status="pendente">
+                                            <i class="fas fa-undo"></i> Reverter
+                                        </button>
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-info-circle"></i> Detalhes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedido 3 -->
+                    <div class="pedido-card card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h5>Pedido #123</h5>
+                                    <p><strong>Cliente:</strong> Delivery - Carlos Souza</p>
+                                    <p><strong>Itens:</strong> 1x Latte, 2x Muffin</p>
+                                    <p><strong>Tempo estimado:</strong> 20 minutos</p>
+                                    <div class="progresso-pedido">
+                                        <div class="progresso-bar" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="status-badge status-finalizado">Finalizado</span>
+                                    <p class="mt-2"><small>Finalizado às 10:30</small></p>
+                                    <div class="btn-group mt-2">
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-info-circle"></i> Detalhes
+                                        </button>
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i> Remover
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedido 4 -->
+                    <div class="pedido-card card mb-3 prioridade-alta">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h5>Pedido #126 <span class="badge badge-danger ml-2">Alta Prioridade</span></h5>
+                                    <p><strong>Cliente:</strong> Ana Paula (Mesa 2)</p>
+                                    <p><strong>Itens:</strong> 1x Chá Gelado, 1x Sanduíche</p>
+                                    <p><strong>Tempo estimado:</strong> 12 minutos</p>
+                                    <div class="progresso-pedido">
+                                        <div class="progresso-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="status-badge status-pendente">Pendente</span>
+                                    <p class="mt-2"><small>Recebido às 10:25</small></p>
+                                    <div class="btn-group mt-2">
+                                        <button class="btn btn-sm btn-primary btn-status" data-status="preparo">
+                                            <i class="fas fa-play"></i> Iniciar
+                                        </button>
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-info-circle"></i> Detalhes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estatísticas em Tempo Real -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Estatísticas em Tempo Real</h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-around text-center">
+                        <div>
+                            <h2>3</h2>
+                            <p>Pendentes</p>
+                        </div>
+                        <div>
+                            <h2>1</h2>
+                            <p>Em Preparo</p>
+                        </div>
+                        <div>
+                            <h2>5</h2>
+                            <p>Finalizados (hoje)</p>
+                        </div>
+                        <div>
+                            <h2>12 min</h2>
+                            <p>Tempo médio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

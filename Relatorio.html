@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaféLPS - Relatórios Financeiros</title>
+    <link rel="stylesheet" href="Estilo_estiloso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>CaféLPS</h2>
+                <p>Sistema de Gestão</p>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="Index.html"><i class="fas fa-tachometer-alt"></i> Início</a></li>
+                    <li><a href="Funcionarios.html"><i class="fas fa-users"></i> Funcionários</a></li>
+                    <li><a href="Clientes.html"><i class="fas fa-user-tie"></i> Clientes</a></li>
+                    <li><a href="Produtos.html"><i class="fas fa-coffee"></i> Produtos</a></li>
+                    <li><a href="Estoque.html"><i class="fas fa-boxes"></i> Estoque</a></li>
+                    <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
+                    <li><a href="Pedidos.html"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
+                    <li><a href="Promocoes.html"><i class="fas fa-tags"></i> Promoções</a></li>
+                    <li><a href="Relatorio.html" class="active"><i class="fas fa-chart-bar"></i> Financeiro</a></li>
+                    <li><a href="Jornada.html"><i class="fas fa-clock"></i> Jornada</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Relatórios Financeiros</h1>
+                <div class="user-info">
+                    <img src="JASPER.jpg" alt="Usuário">
+                    <span>Gerente</span>
+                </div>
+            </div>
+
+            <!-- Filtros do Relatório -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Filtrar Relatório</h3>
+                </div>
+                <div class="card-body">
+                    <form id="form-relatorio-financeiro">
+                        <div class="form-group">
+                            <label for="tipo-relatorio">Tipo de Relatório</label>
+                            <select id="tipo-relatorio" class="form-control" required>
+                                <option value="semanal">Semanal</option>
+                                <option value="mensal" selected>Mensal</option>
+                                <option value="trimestral">Trimestral</option>
+                                <option value="anual">Anual</option>
+                                <option value="personalizado">Personalizado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="mes-container">
+                            <label for="mes-relatorio">Mês</label>
+                            <select id="mes-relatorio" class="form-control">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4" selected>Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="ano-container">
+                            <label for="ano-relatorio">Ano</label>
+                            <select id="ano-relatorio" class="form-control">
+                                <option value="2024">2024</option>
+                                <option value="2025" selected>2025</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="semana-container" style="display:none;">
+                            <label for="semana-relatorio">Semana</label>
+                            <select id="semana-relatorio" class="form-control">
+                                <option value="1">Semana 1</option>
+                                <option value="2">Semana 2</option>
+                                <option value="3">Semana 3</option>
+                                <option value="4">Semana 4</option>
+                                <option value="5">Semana 5</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="data-inicio-relatorio" style="display:none;">
+                            <label for="data-inicio-relatorio">Data Início</label>
+                            <input type="date" id="data-inicio-relatorio" class="form-control">
+                        </div>
+                        
+                        <div class="form-group" id="data-fim-relatorio" style="display:none;">
+                            <label for="data-fim-relatorio">Data Fim</label>
+                            <input type="date" id="data-fim-relatorio" class="form-control">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Gerar Relatório</button>
+                        <button type="button" class="btn btn-secondary">Exportar para Excel</button>
+                        <button type="button" class="btn btn-success">Imprimir Relatório</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Resumo Financeiro -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Resumo Financeiro - Abril 2025</h3>
+                </div>
+                <div class="card-body">
+                    <div class="resumo-metricas">
+                        <div class="metrica">
+                            <h4>Receita Total</h4>
+                            <p class="destaque-financeiro valor-positivo">R$ 24.568,90</p>
+                            <p><small>+12% em relação ao mês anterior</small></p>
+                        </div>
+                        <div class="metrica">
+                            <h4>Custos Operacionais</h4>
+                            <p class="destaque-financeiro valor-negativo">R$ 8.745,20</p>
+                            <p><small>7% das vendas</small></p>
+                        </div>
+                        <div class="metrica">
+                            <h4>Lucro Líquido</h4>
+                            <p class="destaque-financeiro valor-positivo">R$ 15.823,70</p>
+                            <p><small>Margem de 64,4%</small></p>
+                        </div>
+                        <div class="metrica">
+                            <h4>Ticket Médio</h4>
+                            <p class="destaque-financeiro">R$ 28,50</p>
+                            <p><small>+R$ 3,20 em relação ao mês anterior</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="grafico-container">
+                        <p class="text-muted text-center">[Gráfico de evolução de receitas e despesas ao longo do mês]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Relatório Detalhado -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Detalhamento Financeiro</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Receitas</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>% do Total</th>
+                                <th>Variação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bebidas Quentes</td>
+                                <td>R$ 12.450,00</td>
+                                <td>50,7%</td>
+                                <td class="valor-positivo">+8%</td>
+                            </tr>
+                            <tr>
+                                <td>Bebidas Frias</td>
+                                <td>R$ 4.320,50</td>
+                                <td>17,6%</td>
+                                <td class="valor-positivo">+15%</td>
+                            </tr>
+                            <tr>
+                                <td>Alimentos</td>
+                                <td>R$ 6.150,40</td>
+                                <td>25,0%</td>
+                                <td class="valor-positivo">+10%</td>
+                            </tr>
+                            <tr>
+                                <td>Produtos (venda)</td>
+                                <td>R$ 1.647,00</td>
+                                <td>6,7%</td>
+                                <td class="valor-negativo">-5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4 class="mt-4">Despesas</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>% do Total</th>
+                                <th>Variação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Insumos</td>
+                                <td>R$ 4.120,00</td>
+                                <td>47,1%</td>
+                                <td class="valor-positivo">-3%</td>
+                            </tr>
+                            <tr>
+                                <td>Folha de Pagamento</td>
+                                <td>R$ 3.250,00</td>
+                                <td>37,2%</td>
+                                <td class="valor-negativo">+5%</td>
+                            </tr>
+                            <tr>
+                                <td>Aluguel</td>
+                                <td>R$ 850,00</td>
+                                <td>9,7%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <td>Outros Custos</td>
+                                <td>R$ 525,20</td>
+                                <td>6,0%</td>
+                                <td class="valor-negativo">+12%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4 class="mt-4">Descontos Aplicados</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Promoção/Cupom</th>
+                                <th>Quantidade</th>
+                                <th>Total Descontado</th>
+                                <th>% sobre Vendas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10% OFF Cappuccino</td>
+                                <td>23</td>
+                                <td>R$ 92,00</td>
+                                <td>0,37%</td>
+                            </tr>
+                            <tr>
+                                <td>FRETEGRÁTIS</td>
+                                <td>18</td>
+                                <td>R$ 90,00</td>
+                                <td>0,36%</td>
+                            </tr>
+                            <tr>
+                                <td>CAFE15</td>
+                                <td>12</td>
+                                <td>R$ 180,75</td>
+                                <td>0,73%</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th>53</th>
+                                <th>R$ 362,75</th>
+                                <th>1,46%</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Comparativo Semanal -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Comparativo Semanal</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Semana</th>
+                                <th>Receita</th>
+                                <th>Custos</th>
+                                <th>Lucro</th>
+                                <th>Margem</th>
+                                <th>Clientes/Dia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Semana 1 (01-07/04)</td>
+                                <td>R$ 5.820,00</td>
+                                <td>R$ 2.010,00</td>
+                                <td class="valor-positivo">R$ 3.810,00</td>
+                                <td class="valor-positivo">65,5%</td>
+                                <td>68</td>
+                            </tr>
+                            <tr>
+                                <td>Semana 2 (08-14/04)</td>
+                                <td>R$ 6.150,50</td>
+                                <td>R$ 2.120,50</td>
+                                <td class="valor-positivo">R$ 4.030,00</td>
+                                <td class="valor-positivo">65,5%</td>
+                                <td>72</td>
+                            </tr>
+                            <tr>
+                                <td>Semana 3 (15-21/04)</td>
+                                <td>R$ 6.845,40</td>
+                                <td>R$ 2.305,70</td>
+                                <td class="valor-positivo">R$ 4.539,70</td>
+                                <td class="valor-positivo">66,3%</td>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <td>Semana 4 (22-30/04)</td>
+                                <td>R$ 5.753,00</td>
+                                <td>R$ 2.309,00</td>
+                                <td class="valor-positivo">R$ 3.444,00</td>
+                                <td class="valor-positivo">59,8%</td>
+                                <td>65</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="grafico-container">
+                       
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
