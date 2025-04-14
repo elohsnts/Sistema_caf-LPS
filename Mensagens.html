@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CaféLPS - Mensagens</title>
     <link rel="Stylesheet" href="Estilo_estiloso.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
     <div class="container">
@@ -19,9 +18,9 @@
             
             <nav class="sidebar-menu">
                 <ul>
-                    <li><a href="Index.html" ><i class="fas fa-tachometer-alt"></i> Início</a></li>
-                    <li><a href="Funcionarios.html" ><i class="fas fa-users"></i> Funcionários</a></li>
-                    <li><a href="Clientes.html" ><i class="fas fa-user-tie"></i> Clientes</a></li>
+                    <li><a href="Index.html"><i class="fas fa-tachometer-alt"></i> Início</a></li>
+                    <li><a href="Funcionarios.html"><i class="fas fa-users"></i> Funcionários</a></li>
+                    <li><a href="Clientes.html"><i class="fas fa-user-tie"></i> Clientes</a></li>
                     <li><a href="Produtos.html"><i class="fas fa-coffee"></i> Produtos</a></li>
                     <li><a href="Estoque.html"><i class="fas fa-boxes"></i> Estoque</a></li>
                     <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
@@ -29,7 +28,7 @@
                     <li><a href="Promocoes.html"><i class="fas fa-tags"></i> Promoções</a></li>
                     <li><a href="Relatorio.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
                     <li><a href="Jornada.html"><i class="fas fa-clock"></i> Jornada</a></li>
-                    <li><a href="Mensagens.html"class="active"><i class="fas fa-user-friends"></i> Mensagens</a></li>
+                    <li><a href="Mensagens.html" class="active"><i class="fas fa-user-friends"></i> Mensagens</a></li>
                 </ul>
             </nav>
         </aside>
@@ -43,3 +42,332 @@
                     <span>Gerente</span>
                 </div>
             </div>
+
+            <!-- Filtros de Mensagens -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Filtrar Mensagens</h3>
+                </div>
+                <div class="card-body">
+                    <form id="filtro-mensagens">
+                        <div class="form-group">
+                            <label for="tipo-mensagem">Tipo de Mensagem</label>
+                            <select id="tipo-mensagem" class="form-control">
+                                <option value="todas">Todas</option>
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="email">E-mail</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="categoria-mensagem">Categoria</label>
+                            <select id="categoria-mensagem" class="form-control">
+                                <option value="todas">Todas</option>
+                                <option value="promocao">Promoção/Cupom</option>
+                                <option value="reengajamento">Reengajamento</option>
+                                <option value="aniversario">Aniversário</option>
+                                <option value="outras">Outras</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="periodo-mensagem">Período</label>
+                            <select id="periodo-mensagem" class="form-control">
+                                <option value="7dias">Últimos 7 dias</option>
+                                <option value="30dias">Últimos 30 dias</option>
+                                <option value="mes">Este mês</option>
+                                <option value="personalizado">Personalizado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="data-inicio-container" style="display:none;">
+                            <label for="data-inicio">Data Início</label>
+                            <input type="date" id="data-inicio" class="form-control">
+                        </div>
+                        
+                        <div class="form-group" id="data-fim-container" style="display:none;">
+                            <label for="data-fim">Data Fim</label>
+                            <input type="date" id="data-fim" class="form-control">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Filtrar</button>
+                        <button type="reset" class="btn btn-secondary">Limpar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Estatísticas de Mensagens -->
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Total de Mensagens</h3>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="card-body">
+                        <h2>128</h2>
+                        <p>mensagens enviadas</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Taxa de Abertura</h3>
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-body">
+                        <h2>68%</h2>
+                        <p>mensagens abertas</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Conversão</h3>
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="card-body">
+                        <h2>22%</h2>
+                        <p>resultaram em compras</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lista de Mensagens -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Mensagens Enviadas</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table" id="tabela-mensagens">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Cliente</th>
+                                <th>Tipo</th>
+                                <th>Categoria</th>
+                                <th>Assunto</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Lucas Andrade - Promoção -->
+                            <tr>
+                                <td>10/04/2025 14:30</td>
+                                <td>Lucas Andrade</td>
+                                <td><span class="badge badge-success">WhatsApp</span></td>
+                                <td>Promoção</td>
+                                <td>Cupom 20% - Volte ao CaféLPS!</td>
+                                <td><span class="badge badge-success">Entregue</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" onclick="mostrarMensagem('lucas')">Ver</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Fernanda Costa - Reengajamento -->
+                            <tr>
+                                <td>08/04/2025 10:15</td>
+                                <td>Fernanda Costa</td>
+                                <td><span class="badge badge-primary">E-mail</span></td>
+                                <td>Reengajamento</td>
+                                <td>Saudades do seu café preferido!</td>
+                                <td><span class="badge badge-warning">Pendente</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" onclick="mostrarMensagem('fernanda')">Ver</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Thiago Martins - Aniversário -->
+                            <tr>
+                                <td>05/04/2025 09:00</td>
+                                <td>Thiago Martins</td>
+                                <td><span class="badge badge-success">WhatsApp</span></td>
+                                <td>Aniversário</td>
+                                <td>Feliz Aniversário! Presente especial para você</td>
+                                <td><span class="badge badge-success">Entregue</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" onclick="mostrarMensagem('thiago')">Ver</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Todos os clientes - Geral -->
+                            <tr>
+                                <td>01/04/2025 16:45</td>
+                                <td>Todos os clientes</td>
+                                <td><span class="badge badge-primary">E-mail</span></td>
+                                <td>Outras</td>
+                                <td>Novo cardápio de outono disponível</td>
+                                <td><span class="badge badge-success">Entregue</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" onclick="mostrarMensagem('todos')">Ver</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal para visualizar mensagem -->
+            <div class="modal" id="modal-mensagem" style="display:none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 id="modal-titulo">Detalhes da Mensagem</h4>
+                        <button class="btn btn-close" onclick="fecharModal()">&times;</button>
+                    </div>
+                    <div class="modal-body" id="modal-corpo">
+                        <!-- Conteúdo será inserido via JavaScript -->
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" onclick="fecharModal()">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Função para mostrar mensagem específica
+        function mostrarMensagem(cliente) {
+            const modal = document.getElementById('modal-mensagem');
+            const titulo = document.getElementById('modal-titulo');
+            const corpo = document.getElementById('modal-corpo');
+            
+            // Mensagens pré-definidas
+            const mensagens = {
+                'lucas': {
+                    title: 'Detalhes da Mensagem - Cupom 20% de desconto',
+                    content: `
+                        <div class="mensagem-conteudo">
+                            <p>Olá Lucas,</p>
+                            <p>Notamos que faz algum tempo que não te vemos no CaféLPS e queremos te dar um motivo especial para voltar!</p>
+                            <p style="font-size: 1.2em; text-align: center; margin: 15px 0;">
+                                <strong>Use o cupom: <span style="color: #8B4513;">VOLTE20</span></strong><br>
+                                e ganhe <strong>20% DE DESCONTO</strong> no seu próximo pedido!
+                            </p>
+                            <p>📅 Válido até: <strong>30/04/2025</strong></p>
+                            <p>Enquanto você esteve fora, criamos algumas novidades:</p>
+                            <ul>
+                                <li>☕ Novo blend "Outono Especial" - café com notas de canela e noz-moscada</li>
+                                <li>🍰 Bolo de maçã com calda de caramelo salgado</li>
+                                <li>🥪 Sanduíches artesanais com pão caseiro</li>
+                            </ul>
+                            <p style="margin-top: 20px;">
+                                <em>"Um café preparado com carinho espera por você!"</em>
+                            </p>
+                            <p>Equipe CaféLPS ❤️</p>
+                            <div style="margin-top: 20px; padding: 10px; background-color: #F5F5DC; border-radius: 5px;">
+                                <p><strong>Status:</strong> Cupom utilizado em 12/04/2025 - Compra de R$ 45,60</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'fernanda': {
+                    title: 'Detalhes da Mensagem - Saudades do seu café preferido!',
+                    content: `
+                        <div class="mensagem-conteudo">
+                            <p>Querida Fernanda,</p>
+                            <p>Os grãos do seu café favorito estão ficando solitários aqui na nossa cafeteria... 😔</p>
+                            <p>Lembra daquele seu pedido perfeito?</p>
+                            <ul>
+                                <li>☕ Cappuccino tradicional</li>
+                                <li>🍮 Pudim de leite</li>
+                                <li>🌅 Lugar preferido: mesa perto da janela</li>
+                            </ul>
+                            <p>Para te receber de volta, preparamos:</p>
+                            <p style="font-size: 1.1em; background-color: #F5F5DC; padding: 10px; border-radius: 5px;">
+                                <strong>Sua primeira xícara volta por nossa conta!</strong><br>
+                                Apresente esta mensagem no balcão e ganhe um café grátis.
+                            </p>
+                            <p>Estamos de portas abertas das 7h às 20h, inclusive nos fins de semana!</p>
+                            <p>Com saudades,<br>Equipe CaféLPS</p>
+                            <div style="margin-top: 20px; padding: 10px; background-color: #F5F5DC; border-radius: 5px;">
+                                <p><strong>Status:</strong> Mensagem não aberta (última tentativa: 09/04/2025 10:30)</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'thiago': {
+                    title: 'Detalhes da Mensagem - Feliz Aniversário!',
+                    content: `
+                        <div class="mensagem-conteudo">
+                            <div style="text-align: center; background-color: #F5F5DC; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                                <h3 style="color: #8B4513; margin: 0;">🎉 FELIZ ANIVERSÁRIO, THIAGO! 🎉</h3>
+                            </div>
+                            <p>Hoje é um dia especial e queremos celebrar COM VOCÊ!</p>
+                            <p>Como presente de aniversário, preparamos:</p>
+                            <div style="border: 2px dashed #8B4513; padding: 15px; text-align: center; margin: 20px 0; border-radius: 5px;">
+                                <p style="font-size: 1.3em; margin: 0;">
+                                    <strong>CAFÉ + SOBREMESA<br>POR CONTA DA CASA!</strong>
+                                </p>
+                                <p style="margin: 5px 0 0;">(válido por 7 dias)</p>
+                            </div>
+                            <p>Basta apresentar este e-mail quando vier nos visitar!</p>
+                            <p style="margin-top: 25px;">📌 Dica do barista: Experimente nossa nova combinação:</p>
+                            <ul>
+                                <li>☕ Café coado especial do dia</li>
+                                <li>🍫 Brownie de chocolate com sorvete de baunilha</li>
+                            </ul>
+                            <p style="text-align: center; margin-top: 20px;">
+                                <em>Que seu dia seja tão especial quanto o café que preparamos para você!</em>
+                            </p>
+                            <p style="text-align: right;">Com carinho,<br>Equipe CaféLPS</p>
+                            <div style="margin-top: 20px; padding: 10px; background-color: #F5F5DC; border-radius: 5px;">
+                                <p><strong>Status:</strong> Mensagem aberta em 05/04/2025 09:45 - Presente resgatado em 07/04/2025</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'todos': {
+                    title: 'Detalhes da Mensagem - Novo cardápio de outono disponível',
+                    content: `
+                        <div class="mensagem-conteudo">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <h3 style="color: #8B4513;">🍁 NOVOS SABORES DE OUTONO 🍁</h3>
+                                <p style="font-style: italic;">Descubra as delícias da estação</p>
+                            </div>
+                            <p>Prezados clientes,</p>
+                            <p>O outono chegou e com ele nossas novas criações especiais:</p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+                                <div style="flex: 1; min-width: 150px; background: #F5F5DC; padding: 10px; border-radius: 5px;">
+                                    <p style="font-weight: bold; margin: 0 0 5px 0;">☕ Café Especiarias</p>
+                                    <p style="margin: 0;">Café com canela, cravo e anis estrelado</p>
+                                </div>
+                                <div style="flex: 1; min-width: 150px; background: #F5F5DC; padding: 10px; border-radius: 5px;">
+                                    <p style="font-weight: bold; margin: 0 0 5px 0;">🍰 Torta de Maçã</p>
+                                    <p style="margin: 0;">Com farofa crocante e sorvete de baunilha</p>
+                                </div>
+                                <div style="flex: 1; min-width: 150px; background: #F5F5DC; padding: 10px; border-radius: 5px;">
+                                    <p style="font-weight: bold; margin: 0 0 5px 0;">🍫 Chocolate Quente</p>
+                                    <p style="margin: 0;">Feito com chocolate 70% e pimenta rosa</p>
+                                </div>
+                            </div>
+                            <p style="margin-top: 15px;">📅 <strong>Promoção de lançamento:</strong> Todos os itens do cardápio de outono com 15% de desconto até o dia 20/04!</p>
+                            <p>Venha experimentar esses sabores exclusivos que preparamos com todo carinho para você!</p>
+                            <p>Horário de funcionamento:<br>
+                            Segunda a sexta: 7h às 20h<br>
+                            Sábado e domingo: 8h às 18h</p>
+                            <p>Atenciosamente,<br>Equipe CaféLPS</p>
+                            <div style="margin-top: 20px; padding: 10px; background-color: #F5F5DC; border-radius: 5px;">
+                                <p><strong>Status:</strong> Mensagem enviada para 85 clientes - Taxa de abertura: 72%</p>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+
+            // Preencher o modal com os dados
+            titulo.textContent = mensagens[cliente].title;
+            corpo.innerHTML = mensagens[cliente].content;
+            
+            // Mostrar o modal
+            modal.style.display = 'block';
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById('modal-mensagem').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+            
