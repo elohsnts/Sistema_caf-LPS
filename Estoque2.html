@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque de Produtos - CaféLPS</title>
+    <link rel="stylesheet" href="Estilo_estiloso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>CaféLPS</h2>
+                <p>Sistema de Gestão</p>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="Index.html"><i class="fas fa-tachometer-alt"></i> Início</a></li>
+                    <li><a href="Funcionarios.html"><i class="fas fa-users"></i> Funcionários</a></li>
+                    <li><a href="Clientes.html"><i class="fas fa-user-tie"></i> Clientes</a></li>
+                    <li><a href="Produtos.html"><i class="fas fa-coffee"></i> Cadastro de Itens</a></li>
+                    <li><a href="Estoque.html" ><i class="fas fa-boxes"></i> Estoque de Insumos</a></li>
+                    <li><a href="Estoque2.html" class="active"><i class="fas fa-boxes"></i> Estoque de Produtos</a></li>
+                    <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
+                    <li><a href="Pedidos.html"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
+                    <li><a href="Promocoes.html"><i class="fas fa-tags"></i> Promoções</a></li>
+                    <li><a href="Relatorio.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                    <li><a href="Jornada.html"><i class="fas fa-clock"></i> Jornada</a></li>
+                    <li><a href="Mensagens.html"><i class="fas fa-user-friends"></i> Mensagens</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Estoque de Produtos</h1>
+                <div class="user-info">
+                    <img src="JASPER.jpg" alt="Usuário">
+                    <span>Gerente</span>
+                </div>
+            </div>
+            
+            <!-- Gestão de Estoque -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Gestão de Estoque de Produtos</h3>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Pesquisar produto...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <strong>Atenção!</strong> Verifique os itens com estoque baixo.
+                    </div>
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>ID</th>
+                                <th>Quantidade</th>
+                                <th>Valor Compra</th>
+                                <th>Valor Venda</th>
+                                <th>Data Validade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Bolos e Doces -->
+                            <tr>
+                                <td>Bolo</td>
+                                <td>BOL001</td>
+                                <td>15</td>
+                                <td>R$ 25,00</td>
+                                <td>R$ 45,00</td>
+                                <td>05/07/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Cookies</td>
+                                <td>COO001</td>
+                                <td>50</td>
+                                <td>R$ 1,50</td>
+                                <td>R$ 3,50</td>
+                                <td>10/07/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Rosca</td>
+                                <td>ROS001</td>
+                                <td>12</td>
+                                <td>R$ 12,00</td>
+                                <td>R$ 22,00</td>
+                                <td>08/07/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Cupcake</td>
+                                <td>CUP001</td>
+                                <td>30</td>
+                                <td>R$ 4,00</td>
+                                <td>R$ 8,00</td>
+                                <td>07/07/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Waffle</td>
+                                <td>WAF001</td>
+                                <td>20</td>
+                                <td>R$ 5,00</td>
+                                <td>R$ 12,00</td>
+                                <td>06/07/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Doce com Sorvete</td>
+                                <td>DOS001</td>
+                                <td>8</td>
+                                <td>R$ 8,00</td>
+                                <td>R$ 18,00</td>
+                                <td>05/07/2025</td>
+                                <td><span class="badge badge-warning">Estoque baixo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Torta de Limão</td>
+                                <td>TOL001</td>
+                                <td>10</td>
+                                <td>R$ 15,00</td>
+                                <td>R$ 28,00</td>
+                                <td>09/07/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Torta de Morango</td>
+                                <td>TOM001</td>
+                                <td>10</td>
+                                <td>R$ 18,00</td>
+                                <td>R$ 32,00</td>
+                                <td>09/07/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            
+                            <!-- Refrigerantes -->
+                            <tr>
+                                <td>Coca Cola 350ml</td>
+                                <td>CC350</td>
+                                <td>48</td>
+                                <td>R$ 2,50</td>
+                                <td>R$ 6,00</td>
+                                <td>15/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Coca Cola 500ml</td>
+                                <td>CC500</td>
+                                <td>36</td>
+                                <td>R$ 3,50</td>
+                                <td>R$ 8,00</td>
+                                <td>15/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Coca Cola Zero 350ml</td>
+                                <td>CCZ350</td>
+                                <td>24</td>
+                                <td>R$ 2,70</td>
+                                <td>R$ 6,50</td>
+                                <td>15/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Coca Cola Zero 500ml</td>
+                                <td>CCZ500</td>
+                                <td>24</td>
+                                <td>R$ 3,70</td>
+                                <td>R$ 8,50</td>
+                                <td>15/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Coca Cola de Café 250ml</td>
+                                <td>CCC250</td>
+                                <td>18</td>
+                                <td>R$ 4,00</td>
+                                <td>R$ 9,00</td>
+                                <td>30/11/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Pepsi 350ml</td>
+                                <td>PEP350</td>
+                                <td>36</td>
+                                <td>R$ 2,30</td>
+                                <td>R$ 5,50</td>
+                                <td>10/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Guaraná Antarctica 350ml</td>
+                                <td>GUA350</td>
+                                <td>30</td>
+                                <td>R$ 2,20</td>
+                                <td>R$ 5,50</td>
+                                <td>20/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Guaraná Antarctica 500ml</td>
+                                <td>GUA500</td>
+                                <td>24</td>
+                                <td>R$ 3,20</td>
+                                <td>R$ 7,50</td>
+                                <td>20/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Guaraná Zero 350ml</td>
+                                <td>GUZ350</td>
+                                <td>18</td>
+                                <td>R$ 2,40</td>
+                                <td>R$ 6,00</td>
+                                <td>20/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Guaraná Zero 500ml</td>
+                                <td>GUZ500</td>
+                                <td>18</td>
+                                <td>R$ 3,40</td>
+                                <td>R$ 8,00</td>
+                                <td>20/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Fanta Laranja 350ml</td>
+                                <td>FAL350</td>
+                                <td>24</td>
+                                <td>R$ 2,10</td>
+                                <td>R$ 5,50</td>
+                                <td>18/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Fanta Laranja 500ml</td>
+                                <td>FAL500</td>
+                                <td>18</td>
+                                <td>R$ 3,10</td>
+                                <td>R$ 7,50</td>
+                                <td>18/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Fanta Uva 350ml</td>
+                                <td>FAU350</td>
+                                <td>24</td>
+                                <td>R$ 2,10</td>
+                                <td>R$ 5,50</td>
+                                <td>18/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Fanta Uva 500ml</td>
+                                <td>FAU500</td>
+                                <td>18</td>
+                                <td>R$ 3,10</td>
+                                <td>R$ 7,50</td>
+                                <td>18/12/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Água com Gás 500ml</td>
+                                <td>ACG500</td>
+                                <td>36</td>
+                                <td>R$ 1,20</td>
+                                <td>R$ 4,00</td>
+                                <td>01/06/2026</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Água sem Gás 500ml</td>
+                                <td>ASG500</td>
+                                <td>48</td>
+                                <td>R$ 1,00</td>
+                                <td>R$ 3,50</td>
+                                <td>01/06/2026</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            
+                            <!-- Sucos e Energéticos -->
+                            <tr>
+                                <td>Suco Del Valle Uva 250ml</td>
+                                <td>SDVUVA</td>
+                                <td>24</td>
+                                <td>R$ 2,80</td>
+                                <td>R$ 6,50</td>
+                                <td>30/09/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Suco Del Valle Pêssego 250ml</td>
+                                <td>SDVPES</td>
+                                <td>24</td>
+                                <td>R$ 2,80</td>
+                                <td>R$ 6,50</td>
+                                <td>30/09/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Suco Del Valle Maracujá 250ml</td>
+                                <td>SDVMAR</td>
+                                <td>24</td>
+                                <td>R$ 2,80</td>
+                                <td>R$ 6,50</td>
+                                <td>30/09/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Suco Del Valle Laranja 250ml</td>
+                                <td>SDVLAR</td>
+                                <td>24</td>
+                                <td>R$ 2,80</td>
+                                <td>R$ 6,50</td>
+                                <td>30/09/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monster Azul 473ml</td>
+                                <td>MONAZU</td>
+                                <td>12</td>
+                                <td>R$ 6,50</td>
+                                <td>R$ 12,00</td>
+                                <td>15/10/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monster Verde 473ml</td>
+                                <td>MONVER</td>
+                                <td>12</td>
+                                <td>R$ 6,50</td>
+                                <td>R$ 12,00</td>
+                                <td>15/10/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monster Branco 473ml</td>
+                                <td>MONBRA</td>
+                                <td>12</td>
+                                <td>R$ 6,50</td>
+                                <td>R$ 12,00</td>
+                                <td>15/10/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monster Preto 473ml</td>
+                                <td>MONPRE</td>
+                                <td>12</td>
+                                <td>R$ 6,50</td>
+                                <td>R$ 12,00</td>
+                                <td>15/10/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Monster Laranja 473ml</td>
+                                <td>MONLAR</td>
+                                <td>12</td>
+                                <td>R$ 6,50</td>
+                                <td>R$ 12,00</td>
+                                <td>15/10/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td>Redbull 250ml</td>
+                                <td>RED250</td>
+                                <td>18</td>
+                                <td>R$ 5,00</td>
+                                <td>R$ 10,00</td>
+                                <td>30/11/2025</td>
+                                <td><span class="badge badge-success">Disponível</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
