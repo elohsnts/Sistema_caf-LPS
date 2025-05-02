@@ -66,7 +66,7 @@
             <div class="header">
                 <h1 class="page-title">Gestão de Promoções e Cupons</h1>
                 <div class="user-info">
-                    <img src="JASPER.jpg" alt="Usuário">
+                    <img src="download.png" alt="Usuário">
                     <span>Gerente</span>
                 </div>
             </div>
@@ -158,7 +158,13 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3>Promoções Ativas</h3>
-                        <span class="badge badge-primary">5 ativas</span>
+                        
+                        <span class="badge badge-primary">3 ativas</span>
+                        
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Pesquisar promoção...">
+                        <button><i class="fas fa-search"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -216,92 +222,7 @@
                 </div>
             </div>
 
-            <!-- Relatório de Uso de Promoções -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>Relatório de Uso de Promoções</h3>
-                </div>
-                <div class="card-body">
-                    <div class="form-group row">
-                        <div class="col-md-4">
-                            <label for="periodo-relatorio">Período</label>
-                            <select id="periodo-relatorio" class="form-control">
-                                <option value="hoje">Hoje</option>
-                                <option value="semana">Esta Semana</option>
-                                <option value="mes" selected>Este Mês</option>
-                                <option value="personalizado">Personalizado</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="tipo-promocao-relatorio">Tipo de Promoção</label>
-                            <select id="tipo-promocao-relatorio" class="form-control">
-                                <option value="todas">Todas</option>
-                                <option value="produto">Descontos em Produtos</option>
-                                <option value="comanda">Descontos em Comanda</option>
-                                <option value="cupom">Cupons</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 d-flex align-items-end">
-                            <button class="btn btn-primary w-100">Gerar Relatório</button>
-                        </div>
-                    </div>
-                    
-                    <table class="table mt-3">
-                        <thead>
-                            <tr>
-                                <th>Promoção</th>
-                                <th>Tipo</th>
-                                <th>Desconto</th>
-                                <th>Usos</th>
-                                <th>Total Descontado</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>10% OFF Cappuccino</td>
-                                <td>Produto</td>
-                                <td>10%</td>
-                                <td>12</td>
-                                <td>R$ 48,00</td>
-                                <td><span class="badge badge-ativo">Ativa</span></td>
-                            </tr>
-                            <tr>
-                                <td>FRETEGRÁTIS</td>
-                                <td>Comanda</td>
-                                <td>Frete Grátis</td>
-                                <td>45</td>
-                                <td>R$ 225,00</td>
-                                <td><span class="badge badge-ativo">Ativa</span></td>
-                            </tr>
-                            <tr>
-                                <td>CAFE15</td>
-                                <td>Cupom</td>
-                                <td>15%</td>
-                                <td>8</td>
-                                <td>R$ 120,50</td>
-                                <td><span class="badge badge-ativo">Ativa</span></td>
-                            </tr>
-                            <tr>
-                                <td>PROMOVERA</td>
-                                <td>Cupom</td>
-                                <td>R$ 5,00</td>
-                                <td>23</td>
-                                <td>R$ 115,00</td>
-                                <td><span class="badge badge-inativo">Inativa</span></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th colspan="3">Total</th>
-                                <th>88</th>
-                                <th>R$ 508,50</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
+        
         </main>
     </div>
 
