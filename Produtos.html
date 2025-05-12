@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaféLPS - Sistema de Gestão para Cafeteria</title>
-    <link rel="Stylesheet" href="Estilo_estiloso.css">
+    <title>CaféLPS - Cadastro de Itens</title>
+    <link rel="stylesheet" href="Estilo_estiloso.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="" href="">
 </head>
 <body>
-    <script type="text/javascript" src="LBJ.js"></script>
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -23,9 +21,9 @@
                     <li><a href="Index.html"><i class="fas fa-tachometer-alt"></i> Início</a></li>
                     <li><a href="Funcionarios.html"><i class="fas fa-users"></i> Funcionários</a></li>
                     <li><a href="Clientes.html"><i class="fas fa-user-tie"></i> Clientes</a></li>
-                    <li><a href="Insumos.html" class="active"><i class="fas fa-coffee"></i> Cadastro de Itens</a></li>
+                    <li><a href="Produtos.html" class="active"><i class="fas fa-coffee"></i> Cadastro de Itens</a></li>
                     <li><a href="Estoque.html"><i class="fas fa-boxes"></i> Estoque de Insumos</a></li>
-                    <li><a href="Estoque2.html" ><i class="fas fa-boxes"></i> Estoque de Produtos</a></li>
+                    <li><a href="Estoque2.html"><i class="fas fa-boxes"></i> Estoque de Produtos</a></li>
                     <li><a href="Comanda.html"><i class="fas fa-clipboard-list"></i> Comandas</a></li>
                     <li><a href="Pedidos.html"><i class="fas fa-concierge-bell"></i> Pedidos</a></li>
                     <li><a href="Promocoes.html"><i class="fas fa-tags"></i> Promoções</a></li>
@@ -45,62 +43,212 @@
                     <span>Gerente</span>
                 </div>
             </div>
-
-            <div class="card" id="Insumos">
+            
+            <!-- Cadastro de Itens -->
+            <div class="card">
                 <div class="card-header">
-                    <h3>Tabela de Cadastramento de Itens</h3>
+                    <h3>Cadastrar Novo Item</h3>
                 </div>
                 <div class="card-body">
-                    <form id="form-Insumo">
+                    <form id="form-produto">
                         <div class="form-group">
-                            <label for="tipo-item">Tipo do Item</label>
-                            <select id="tipo-item" class="form-control" required>
+                            <label for="nome-produto">Nome do Produto</label>
+                            <input type="text" id="nome-produto" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="categoria-produto">Categoria</label>
+                            <select id="categoria-produto" class="form-control" required>
                                 <option value="">Selecione...</option>
-                                <option value="produto">Produto</option>
-                                <option value="insumo">Insumo</option>
+                                <option value="bebida">Bebida</option>
+                                <option value="comida">Comida</option>
+                                <option value="sobremesa">Sobremesa</option>
+                                <option value="outros">Outros</option>
                             </select>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="nome-Insumo">Nome do Item</label>
-                            <input type="text" id="nome-Insumo" class="form-control" required>
+                            <label for="valor-produto">Valor de Venda (R$)</label>
+                            <input type="number" id="valor-produto" class="form-control" min="0" step="0.01" required>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="id-Insumo">ID do Item</label>
-                            <input type="text" id="id-Insumo" class="form-control" required>
+                            <label for="descricao-produto">Descrição</label>
+                            <textarea id="descricao-produto" class="form-control" rows="3"></textarea>
                         </div>
-
+                        
+                        <!-- Seção de Insumos -->
                         <div class="form-group">
-                            <label for="data-compra">Data de Compra</label>
-                            <input type="date" id="data-compra" class="form-control" required>
+                            <label>Insumos Utilizados</label>
+                            <div id="insumos-container">
+                                <!-- Insumos serão adicionados aqui dinamicamente -->
+                            </div>
+                            <button type="button" class="btn btn-secondary btn-sm" id="adicionar-insumo">
+                                <i class="fas fa-plus"></i> Adicionar Insumo
+                            </button>
                         </div>
-
-                        <div class="form-group">
-                            <label for="data-vencimento">Data de Vencimento</label>
-                            <input type="date" id="data-vencimento" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="quantidade">Quantidade em Estoque</label>
-                            <input type="number" id="quantidade" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="valor-compra">Valor de Compra (R$)</label>
-                            <input type="number" step="0.01" id="valor-compra" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="valor-venda">Valor de Venda (R$)</label>
-                            <input type="number" step="0.01" id="valor-venda" class="form-control" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Cadastrar Item</button>
+                        
+                        <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
                     </form>
+                </div>
+            </div>
+            
+            <!-- Lista de Produtos -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Produtos Cadastrados</h3>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Pesquisar produto...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>Insumos</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Café Expresso</td>
+                                <td>Bebida</td>
+                                <td>R$ 8,00</td>
+                                <td>
+                                    <span class="badge badge-secondary">Café (30g)</span>
+                                    <span class="badge badge-secondary">Água (50ml)</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Cappuccino</td>
+                                <td>Bebida</td>
+                                <td>R$ 12,00</td>
+                                <td>
+                                    <span class="badge badge-secondary">Café (30g)</span>
+                                    <span class="badge badge-secondary">Leite (100ml)</span>
+                                    <span class="badge badge-secondary">Chocolate (10g)</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bolo de Chocolate</td>
+                                <td>Sobremesa</td>
+                                <td>R$ 15,00</td>
+                                <td>
+                                    <span class="badge badge-secondary">Farinha (100g)</span>
+                                    <span class="badge badge-secondary">Ovos (2un)</span>
+                                    <span class="badge badge-secondary">Chocolate (50g)</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
     </div>
+
+    <script>
+        // Contador para IDs únicos dos campos de insumo
+        let insumoCounter = 0;
+        
+        // Função para adicionar um novo campo de insumo
+        document.getElementById('adicionar-insumo').addEventListener('click', function() {
+            const container = document.getElementById('insumos-container');
+            
+            const insumoDiv = document.createElement('div');
+            insumoDiv.className = 'insumo-item';
+            insumoDiv.style.marginBottom = '10px';
+            insumoDiv.style.display = 'flex';
+            insumoDiv.style.gap = '10px';
+            insumoDiv.style.alignItems = 'center';
+            
+            const id = 'insumo-' + insumoCounter++;
+            
+            insumoDiv.innerHTML = `
+                <select class="form-control" style="flex: 2;" id="${id}-nome" required>
+                    <option value="">Selecione o insumo...</option>
+                    <option value="cafe">Café em grão</option>
+                    <option value="leite">Leite</option>
+                    <option value="acucar">Açúcar</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="farinha">Farinha de trigo</option>
+                    <option value="ovos">Ovos</option>
+                    <option value="agua">Água</option>
+                    <!-- Outros insumos podem ser adicionados aqui -->
+                </select>
+                
+                <input type="number" class="form-control" style="flex: 1;" id="${id}-quantidade" min="0" step="0.01" placeholder="Qtd" required>
+                
+                <select class="form-control" style="flex: 1;" id="${id}-unidade" required>
+                    <option value="g">Gramas (g)</option>
+                    <option value="kg">Quilogramas (kg)</option>
+                    <option value="ml">Mililitros (ml)</option>
+                    <option value="l">Litros (l)</option>
+                    <option value="un">Unidades (un)</option>
+                </select>
+                
+                <button type="button" class="btn btn-danger btn-sm" onclick="this.parentNode.remove()">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+            
+            container.appendChild(insumoDiv);
+        });
+        
+        // Função para enviar o formulário
+        document.getElementById('form-produto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Coletar dados do formulário
+            const nome = document.getElementById('nome-produto').value;
+            const categoria = document.getElementById('categoria-produto').value;
+            const valor = document.getElementById('valor-produto').value;
+            const descricao = document.getElementById('descricao-produto').value;
+            
+            // Coletar insumos
+            const insumos = [];
+            const insumoItems = document.querySelectorAll('.insumo-item');
+            
+            insumoItems.forEach(item => {
+                const nome = item.querySelector('select').value;
+                const quantidade = item.querySelector('input[type="number"]').value;
+                const unidade = item.querySelectorAll('select')[1].value;
+                
+                insumos.push({
+                    nome,
+                    quantidade,
+                    unidade
+                });
+            });
+            
+            // Aqui você pode enviar os dados para o servidor ou processá-los
+            console.log({
+                nome,
+                categoria,
+                valor,
+                descricao,
+                insumos
+            });
+            
+            alert('Produto cadastrado com sucesso!');
+            this.reset();
+            document.getElementById('insumos-container').innerHTML = '';
+        });
+    </script>
 </body>
 </html>
